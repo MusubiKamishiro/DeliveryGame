@@ -19,9 +19,6 @@ public class Player : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        //animator.SetFloat("Horizontal", x);
-        //animator.SetFloat("Vertical", z);
-
         // 左スティックの情報をもとにキャラの向きの変更と移動
         rb.velocity = new Vector3(x * 10, -3, z * 10);
         if ((x != 0) || (z != 0))
