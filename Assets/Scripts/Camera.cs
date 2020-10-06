@@ -11,6 +11,7 @@ public class Camera : MonoBehaviour
     void Start()
     {
         this.player = GameObject.Find("unitychan");
+        transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 2, player.transform.position.z - 2);
         offset = transform.position - player.transform.position;
     }
 
