@@ -6,19 +6,22 @@ using UnityEngine;
 public class CourseManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject[] startObjects;      // スタート地点のオブジェクト群
+    GameObject[] shopObjects;      // スタート地点のオブジェクト群
     [SerializeField]
     GameObject[] goalObjects;       // ゴール地点のオブジェクト群
 
     [SerializeField]
     const int courseMax = 3;        // フィールド上に出現するコースの最大数
 
+    [SerializeField]
+    const int foodMax = 3;          // 客が注文する料理の最大品数 
+
     // コース作成に必要なデータ
     struct courseData
     {
-        public GameObject[] startObjects;
+        public GameObject[] shopObjects;
         public GameObject goalObject;
-
+        int foodCount;
 	}
 
     private courseData[] courses = new courseData[courseMax];   // フィールド上に出現しているコースデータ
@@ -30,15 +33,8 @@ public class CourseManager : MonoBehaviour
     void Start()
     {
         // ステージに設置されてあるスタート地点、ゴール地点を非アクティブ状態にする
-        InitPoints(ref startObjects, "Start");
+        InitPoints(ref shopObjects, "Start");
         InitPoints(ref goalObjects, "Goal");
-        //InitObjects(startObjects, "Start");
-
-
-  //      for(int i = 0; i < courseMax; ++i)
-  //      {
-  //          courses[i].startObjects = new GameObject[5];
-		//}
     }
 
 
@@ -74,17 +70,17 @@ public class CourseManager : MonoBehaviour
             startFlag = false;
         }
 
-        for(int i = 0; i < courses.Length; ++i)
+        // 出現しているコースのデバッグ表示用
+        for (int i = 0; i < courses.Length; ++i)
         {
             Debug.Log("コース" + i);
-            for(int j = 0; j < courses[i].startObjects.Length; ++j)
+            for(int j = 0; j < courses[i].shopObjects.Length; ++j)
             {
-                Debug.Log("スタート位置[" + j + "]：" + courses[i].startObjects[j].name);
+                Debug.Log("スタート位置[" + j + "]：" + courses[i].shopObjects[j].name);
             }
 
             Debug.Log("ゴール位置：" + courses[i].goalObject.name);
         }
-        // Debug.Log("経過時間" + Time.time);
 	}
 
     // ランダムにスタートやゴール地点を選ぶ
@@ -112,12 +108,17 @@ public class CourseManager : MonoBehaviour
         courses[courseCount].goalObject = goalObjects[p];
 
         // 客の頼む商品の決定
+        int foodCount = UnityEngine.Random.Range(1, foodMax);
+
 
         // 商品を売ってる位置をスタートとする
-        courses[courseCount].startObjects = new GameObject[1];
-        p = SelectPoint(ref startObjects);
-        courses[courseCount].startObjects[0] = startObjects[p];
-        
+        courses[courseCount].shopObjects = new GameObject[foodCount];
+        for(int i = 0; i < foodCount; ++i)
+        {
+            p = SelectPoint(ref shopObjects);
+            courses[courseCount].shopObjects[i] = shopObjects[p];
+        }
+                
         ++courseCount;
     }
 }
