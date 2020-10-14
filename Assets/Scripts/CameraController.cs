@@ -14,28 +14,34 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         this.player = GameObject.Find("unitychan");
-        offset = new Vector3(0, 1, -2);
-
-        playerPos = player.transform.position;
+        offset = new Vector3(0, 1, 2);
+        transform.position = player.transform.position + offset;
     }
 
     // Update is called once per frame
     void Update()
     {
         Transform _transform = player.transform;
-        //Vector3 forward = _transform.forward;
+        Vector3 forward = _transform.forward;
 
-        //Debug.Log(forward);
+        //playerPos = player.transform.position;
 
-        //transform.position = offset + player.transform.position;
-        //if(forward.z > 2)
+        //transform.position = offset + playerPos;
+
+        transform.rotation = player.transform.rotation;
+
+        //transform.RotateAround(playerPos,new Vector3(1,0,0),oldPPos.x - playerPos.x * Time.deltaTime);
+
+        //if(playerPos != oldPPos)
         //{
-
+        //    transform.RotateAround(playerPos, new Vector3(0, 1, 0), oldPPos.x - playerPos.x);
         //}
 
-        //transform.rotation = player.transform.rotation;
+        //Debug.Log(player.transform.forward);
 
-        transform.position += _transform.position - playerPos;
-        playerPos = _transform.position;
+        //oldPPos = playerPos;
+
+        //transform.position += _transform.position - playerPos;
+        //playerPos = _transform.position;
     }
 }
