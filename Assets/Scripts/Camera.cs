@@ -5,19 +5,23 @@ using UnityEngine;
 public class Camera : MonoBehaviour
 {
     private GameObject player;
-    private Vector3 offset;         //  キャラクターとカメラとのオフセット
+    private Vector3 oldPlayerPos;
+
+    private float rotateSpeed = 0.5f;       //  回転スピード
 
     // Start is called before the first frame update
     void Start()
     {
         this.player = GameObject.Find("unitychan");
-        transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 2, player.transform.position.z - 2);
-        offset = transform.position - player.transform.position;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = offset + player.transform.position;
+        //float angle = Input.GetAxis("Horizontal") * rotateSpeed;
+        Vector3 pPos = player.transform.position;
+        //transform.position = pPos + offset;
+        //transform.RotateAround(pPos, Vector3.up, angle);
     }
 }
