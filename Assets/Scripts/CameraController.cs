@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
     private GameObject player;
     private GameObject mainCamera;
-    private Vector3 offset;                 //  キャラクターとカメラとのオフセット
+    private float offset = 3.0f;                 //  キャラクターとカメラとのオフセット
     private Vector3 playerPos;
     private float rotateSpeed = 3.0f;
 
@@ -14,8 +14,8 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         this.player = GameObject.Find("unitychan");
-        offset = new Vector3(0, 3, -3);
         playerPos = player.transform.position;
+        transform.position = playerPos - transform.rotation * Vector3.forward * offset;
     }
 
     // Update is called once per frame
