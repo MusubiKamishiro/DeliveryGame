@@ -34,11 +34,11 @@ public class CameraController : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Z))
         {
-            transform.RotateAround(playerPos, Vector3.up,rotateSpeed);
+            transform.RotateAround(playerPos, Vector3.up,-rotateSpeed);
         }
         if (Input.GetKey(KeyCode.X))
         {
-            transform.RotateAround(playerPos, Vector3.up, -rotateSpeed);
+            transform.RotateAround(playerPos, Vector3.up, rotateSpeed);
         }
     }
 }

@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private float inputH;
     private float inputV;
 
-    private float speed = 3.0f;
+    private float speed = 8.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +46,5 @@ public class Player : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(moveForward);
         }
-
     }
 }
