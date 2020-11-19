@@ -560,6 +560,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartPoint (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8918652381437649156, guid: 902d522805002d24b8cad8a151f3adc9,
+        type: 3}
+      propertyPath: shopName
+      value: "\u30B2\u30FC\u30BB\u30F3"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 902d522805002d24b8cad8a151f3adc9, type: 3}
 --- !u!1001 &229213664
@@ -628,6 +633,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StartPoint (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8918652381437649156, guid: 902d522805002d24b8cad8a151f3adc9,
+        type: 3}
+      propertyPath: shopName
+      value: "\u5BFF\u53F8"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 902d522805002d24b8cad8a151f3adc9, type: 3}
@@ -2707,6 +2717,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'StartPoint '
       objectReference: {fileID: 0}
+    - target: {fileID: 8918652381437649156, guid: 902d522805002d24b8cad8a151f3adc9,
+        type: 3}
+      propertyPath: shopName
+      value: "\u3055\u3044\u3053\u308D"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 902d522805002d24b8cad8a151f3adc9, type: 3}
 --- !u!1 &1720743705
@@ -2903,6 +2918,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StartPoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8918652381437649156, guid: 902d522805002d24b8cad8a151f3adc9,
+        type: 3}
+      propertyPath: shopName
+      value: "\u30B8\u30E7\u30A4\u30D5\u30EB"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 902d522805002d24b8cad8a151f3adc9, type: 3}
@@ -3232,6 +3252,11 @@ PrefabInstance:
         type: 3}
       propertyPath: pointData.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8918652381437649156, guid: 902d522805002d24b8cad8a151f3adc9,
+        type: 3}
+      propertyPath: shopName
+      value: "\u30B9\u30C6\u30FC\u30AD"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 902d522805002d24b8cad8a151f3adc9, type: 3}

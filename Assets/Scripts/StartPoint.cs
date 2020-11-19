@@ -8,6 +8,9 @@ public class StartPoint : MonoBehaviour
     [SerializeField]
     private Vector3 rotateSpeed = new Vector3(0, 0.5f, 0);  // アイコンの回転速度
 
+    [SerializeField]
+    private string shopName;     // 店名
+
     // スタートに必要な情報
     [System.Serializable]
     struct PointData
@@ -36,4 +39,9 @@ public class StartPoint : MonoBehaviour
         // 自身を回転させて目立たせる
         transform.Rotate(rotateSpeed);
     }
+
+    string GetShopName()
+    {
+        return shopName;
+	}
 }
