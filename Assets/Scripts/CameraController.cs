@@ -10,6 +10,8 @@ public class CameraController : MonoBehaviour
     private Vector3 playerPos;
     private float rotateSpeed = 3.0f;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,7 @@ public class CameraController : MonoBehaviour
         transform.position += player.transform.position - playerPos;
         playerPos = player.transform.position;
 
-        if(Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.X))
+        if(Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.X) || (Input.GetAxis("Horizontal2") != 0))
         {
             AngleUpdate();
         }
@@ -32,13 +34,24 @@ public class CameraController : MonoBehaviour
 
     void AngleUpdate()
     {
-        if(Input.GetKey(KeyCode.Z))
+        //  右スティックの横の傾き
+        float inputH = Input.GetAxis("Horizontal2");
+
+        //  左に向ける
+        if (Input.GetKey(KeyCode.Z) || inputH < 0)
         {
             transform.RotateAround(playerPos, Vector3.up,-rotateSpeed);
         }
-        if (Input.GetKey(KeyCode.X))
+        //  右に向ける
+        if (Input.GetKey(KeyCode.X) || inputH > 0)
         {
             transform.RotateAround(playerPos, Vector3.up, rotateSpeed);
+        }
+
+        //  プレイヤーが向いている方向にカメラを合わせる
+        if (Input.GetKey(KeyCode.C))
+        {
+
         }
     }
 }
