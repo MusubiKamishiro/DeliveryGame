@@ -6,7 +6,9 @@ public class CameraController : MonoBehaviour
 {
     private GameObject player;
     private GameObject mainCamera;
-    private float offset = 3.0f;                                //  キャラクターとカメラとのオフセット
+
+    private Vector3 offset = new Vector3(0,-2.0f,5.0f);         //  キャラクターとカメラとのオフセット
+
     private Vector3 playerPos;
     [SerializeField] private float rotateSpeed = 3.0f;          //  カメラ回転スピード
 
@@ -16,7 +18,8 @@ public class CameraController : MonoBehaviour
     {
         this.player = GameObject.FindWithTag("Player");
         playerPos = player.transform.position;
-        transform.position = playerPos - transform.rotation * Vector3.forward * offset;
+        //  カメラの位置決定
+        transform.position = playerPos - transform.rotation * offset;
     }
 
     // Update is called once per frame
