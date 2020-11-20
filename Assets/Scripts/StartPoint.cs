@@ -9,22 +9,26 @@ public class StartPoint : MonoBehaviour
     private Vector3 rotateSpeed = new Vector3(0, 0.5f, 0);  // アイコンの回転速度
 
     [SerializeField]
-    private string shopName;     // 店名
+    private string shopName;    // 店名
+    [SerializeField]
+    int shippingCharges;        // 配送手数料
 
-    // スタートに必要な情報
+    // 商品情報
     [System.Serializable]
-    struct PointData
+    struct MenuData
     {
         [SerializeField]
-        string name;    // 何を売っているか
+        string name;            // 商品名
         [SerializeField]
-        int img;        // 商品画像
+        int img;                // 商品画像
         [SerializeField]
-        int money;      // 受取金
+        int price;              // 販売値段
+        [SerializeField]
+        int maxBuyCount;        // 最大購入数
     }
 
     [SerializeField]
-    PointData[] pointData;
+    MenuData[] menuData;
 
     
     // Start is called before the first frame update
