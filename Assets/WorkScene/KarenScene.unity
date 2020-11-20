@@ -569,6 +569,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -851,3 +855,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1e027f4804d5e4289d39d6ff45d89b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateSpeed: 3
