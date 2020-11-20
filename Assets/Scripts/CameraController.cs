@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.player = GameObject.Find("unitychan");
+        this.player = GameObject.FindWithTag("Player");
         playerPos = player.transform.position;
         transform.position = playerPos - transform.rotation * Vector3.forward * offset;
     }

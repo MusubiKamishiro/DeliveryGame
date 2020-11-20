@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 6117733}
   - component: {fileID: 6117732}
   - component: {fileID: 6117735}
+  - component: {fileID: 6117736}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -212,12 +213,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6117731}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c06235ef0ce1f842af93f22b2a242ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 67744611}
+--- !u!114 &6117736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1e027f4804d5e4289d39d6ff45d89b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &14544481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -326,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ee09d53f39c454a8208e3d00edca54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 67744617}
 --- !u!65 &67744613
 BoxCollider:
   m_ObjectHideFlags: 0
