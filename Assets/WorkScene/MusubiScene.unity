@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1e027f4804d5e4289d39d6ff45d89b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateSpeed: 1
 --- !u!1001 &14544481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2735,6 +2736,11 @@ PrefabInstance:
       propertyPath: shopName
       value: "\u3055\u3044\u3053\u308D"
       objectReference: {fileID: 0}
+    - target: {fileID: 8918652381437649156, guid: 902d522805002d24b8cad8a151f3adc9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 902d522805002d24b8cad8a151f3adc9, type: 3}
 --- !u!1 &1720743705
@@ -3032,6 +3038,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891633928}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1954464208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8918652380429083487, guid: 902d522805002d24b8cad8a151f3adc9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1683645091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1954464212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954464208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c421d898a5e5abf4a9c9701724740e75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopName: "\u3055\u3044\u3053\u308D"
+  shippingCharges: 150
+  menuData: []
 --- !u!4 &2021571893 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8918652380429083484, guid: 902d522805002d24b8cad8a151f3adc9,

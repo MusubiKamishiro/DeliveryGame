@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoalPoint : MonoBehaviour
+// 客のスクリプト
+public class Customer : MonoBehaviour
 {
     [SerializeField]
-    string houseName;   // 家(マンション)の名前
-    
-    // 記入   住んでる客の配列
+    string customerName;    // 客の名前
+
+
+    private int satiety;    // 満腹度
+    private int buyCount;   // 購入回数
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +21,6 @@ public class GoalPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }

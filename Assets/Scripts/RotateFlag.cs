@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoalPoint : MonoBehaviour
+public class RotateFlag : MonoBehaviour
 {
     [SerializeField]
-    string houseName;   // 家(マンション)の名前
-    
-    // 記入   住んでる客の配列
+    private Vector3 rotateSpeed = new Vector3(0, 0.5f, 0);  // アイコンの回転速度
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +16,7 @@ public class GoalPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // 自身を回転させて目立たせる
+        transform.Rotate(rotateSpeed);
     }
 }
