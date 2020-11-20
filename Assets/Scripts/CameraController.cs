@@ -6,10 +6,9 @@ public class CameraController : MonoBehaviour
 {
     private GameObject player;
     private GameObject mainCamera;
-    private float offset = 3.0f;                 //  キャラクターとカメラとのオフセット
+    private float offset = 3.0f;                                //  キャラクターとカメラとのオフセット
     private Vector3 playerPos;
-    private float rotateSpeed = 3.0f;
-
+    [SerializeField] private float rotateSpeed = 3.0f;          //  カメラ回転スピード
 
 
     // Start is called before the first frame update
