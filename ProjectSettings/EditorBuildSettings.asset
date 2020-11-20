@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/UnityChan/SplashScreen/SplashScreen_Dark.unity
+    path: 
     guid: c340d6b0ee7f347b98ecab4430cc5df6
+  - enabled: 1
+    path: Assets/WorkScene/MusubiScene.unity
+    guid: bd27825c5b622db40803c235b1de75ac
   m_configObjects: {}
