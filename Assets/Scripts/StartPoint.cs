@@ -27,21 +27,38 @@ public class StartPoint : MonoBehaviour
     }
 
     [SerializeField]
-    MenuData[] menuData;
+    private MenuData[] menuData;
 
-    
+    [SerializeField]
+    string foodName;
+
+    GameObject directions;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        directions = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        
     }
 
-    string GetShopName()
+	private void OnCollisionEnter(Collision collision)
+	{
+        // プレイヤーと接触したらプレイヤーに商品情報を渡す
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Player>().SetCarryFood(foodName);
+            directions.GetComponentInChildren<Directions>().ChangeTarget();
+            gameObject.SetActive(false);
+        }
+    }
+
+
+	string GetShopName()
     {
         return shopName;
 	}

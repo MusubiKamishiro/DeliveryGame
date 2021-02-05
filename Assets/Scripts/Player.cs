@@ -12,10 +12,20 @@ public class Player : MonoBehaviour
 
     private float speed = 8.0f;
 
+    private string carryFood;    // 運んでる商品
+    private int score;
+
+    // 音関係
+    AudioSource audioSource;
+    public AudioClip shopSound;
+    public AudioClip clearSound;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
+        score = 0;
     }
 
     // Update is called once per frame
@@ -45,6 +55,37 @@ public class Player : MonoBehaviour
         if (moveForward != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(moveForward);
+        }
+    }
+
+    public void AddScore(int inscore)
+    {
+        score += inscore;
+        Debug.Log("現在のスコア:" + score);
+    }
+
+    public void SetCarryFood(string foodname)
+    {
+        carryFood = foodname;
+
+        Debug.Log("もった食べ物:" + carryFood);
+    }
+
+    public string GetCarryFood()
+    {
+        return carryFood;
+	}
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Start")
+        {
+            audioSource.PlayOneShot(shopSound);
+        }
+
+        if (collision.gameObject.tag == "Goal" && GetCarryFood() != null)
+        {
+            audioSource.PlayOneShot(clearSound);
         }
     }
 }

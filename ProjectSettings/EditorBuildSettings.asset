@@ -7,8 +7,11 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: 
-    guid: c340d6b0ee7f347b98ecab4430cc5df6
-  - enabled: 1
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/WorkScene/MusubiScene.unity
     guid: bd27825c5b622db40803c235b1de75ac
+  - enabled: 1
+    path: Assets/Scenes/SampleStageScene.unity
+    guid: 310dcf82e9598bc4fb055d4b97638897
   m_configObjects: {}

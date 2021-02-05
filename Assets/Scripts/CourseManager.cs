@@ -22,7 +22,7 @@ public class CourseManager : MonoBehaviour
     GameObject[] goalObjects;       // ゴール地点のオブジェクト群
 
     [SerializeField]
-    const int courseMax = 3;        // フィールド上に出現するコースの最大数
+    const int courseMax = 1;        // フィールド上に出現するコースの最大数
 
     [SerializeField]
     const int foodMax = 3;          // 客が注文する料理の最大品数 
@@ -30,11 +30,15 @@ public class CourseManager : MonoBehaviour
     private courseData[] courses = new courseData[courseMax];   // フィールド上に出現しているコースデータ
     private int courseCount = 0;    // フィールド上に出現しているコース数
 
-    private bool startFlag = true;  // ゲーム開始時にスタート地点を設定する際に使用
+    GameObject directions;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        directions = GameObject.FindGameObjectWithTag("Player");
+        
+
         // ステージに設置されてあるスタート地点、ゴール地点を非アクティブ状態にする
         InitPoints(ref shopObjects, "Start");
         InitPoints(ref goalObjects, "Goal");
@@ -58,28 +62,23 @@ public class CourseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 開始5秒後にランダムにスタート地点を出現させる
-        if(/*Time.time >= 5.0f &&*/ startFlag)
-		{
-            for(int i = 0;  i < courseMax; ++i)
-			{
-                if(courseCount < courseMax)
-                {
-                    CreateCourse();
-                }
-                
+        for(int i = 0;  i < courseMax; ++i)
+        {
+            if(courseCount < courseMax)
+            {
+                CreateCourse(i);
             }
-
-            startFlag = false;
         }
 
         // 出現しているコースのデバッグ表示用
-        for (int i = 0; i < courses.Length; ++i)
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log("コース" + i);
-            Debug.Log("スタート位置：" + courses[i].shopObject.name);
-            Debug.Log("ゴール位置：" + courses[i].houseObject.name);
-            //Debug.Log("店名：" + courses[i].shopObject.GetComponentInChildren<StartPoint>.get);
+            for (int i = 0; i < courses.Length; ++i)
+            {
+                Debug.Log("コース" + i);
+                Debug.Log("スタート位置：" + courses[i].shopObject.name);
+                Debug.Log("ゴール位置：" + courses[i].houseObject.name);
+            }
         }
 	}
 
@@ -101,21 +100,23 @@ public class CourseManager : MonoBehaviour
     }
 
     // コースの作成
-    void CreateCourse()
+    public void CreateCourse(int courseNum)
     {
         // ゴールの位置を決定
         int p = SelectPoint(ref goalObjects);
-        courses[courseCount].houseObject = goalObjects[p];
+        courses[courseNum].houseObject = goalObjects[p];
+
+        // 商品を売ってる位置をスタートとする
+        p = SelectPoint(ref shopObjects);
+        courses[courseNum].shopObject = shopObjects[p];
 
         // 客の頼む商品の決定
         
 
-
-        // 商品を売ってる位置をスタートとする
-        p = SelectPoint(ref shopObjects);
-        courses[courseCount].shopObject = shopObjects[p];
-        
         // コースが完成したのでカウントを増やす
         ++courseCount;
+
+        // ナビに報告
+        directions.GetComponentInChildren<Directions>().SetTargetPosition(courses[courseNum].shopObject.transform, courses[courseNum].houseObject.transform);
     }
 }
